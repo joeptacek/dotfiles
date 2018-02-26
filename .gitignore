@@ -1,0 +1,2 @@
+# required so that the bare repo .dotfiles.git ignores itself in its working directory (~)
+.dotfiles.git
