@@ -1,11 +1,19 @@
 # git directory is $HOME/.dotfiles.git (bare repo)
 # working directory is $HOME
 
-# ignore everything in $HOME including:
+# ignore everything in root of $HOME including:
 # regular directories, files, etc.
 # untracked dotfiles (.ssh, .rubies, .gem, etc.)
 # the repo should also ignore itself (.dotfiles.git)
-*
+/*
+
+# need to un-ignore parent dirs before un-ignoring any of their contents
+!/.github/
+!/.bundle/
+
+# re-ignore contents of parents; whitelist specific items below
+/.github/*
+/.bundle/*
 
 # don't ignore this .gitignore or the README.md
 !.gitignore
