@@ -1,2 +1,19 @@
-# required so that the bare repo .dotfiles.git ignores itself in its working directory (~)
-.dotfiles.git
+# git directory is $HOME/.dotfiles.git (bare repo)
+# working directory is $HOME
+
+# ignore everything in $HOME including:
+# regular directories, files, etc.
+# untracked dotfiles (.ssh, .rubies, .gem, etc.)
+# the repo should also ignore itself (.dotfiles.git)
+*
+
+# don't ignore this .gitignore or the README.md
+!.gitignore
+!.github/README.md
+
+# don't ignore the main dotfiles
+!.bash_profile
+!.bashrc
+!.bundle/config
+!.git-prompt-colors.sh
+!Brewfile

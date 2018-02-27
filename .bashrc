@@ -73,6 +73,5 @@ alias dotfiles-show="defaults write com.apple.finder AppleShowAllFiles YES; kill
 # Finder: hide dotfiles
 alias dotfiles-hide="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
 
-# Dotfiles
-alias dotfiles-git='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-
+# Git for bare dotfiles repo in $HOME
+alias git-dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
