@@ -23,5 +23,6 @@
 !.bash_profile
 !.bashrc
 !.bundle/config
+!.dotfiles-install
 !.git-prompt-colors.sh
 !Brewfile

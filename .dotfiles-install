@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+now="$(date +%Y-%m%d-%H%M%S)"
+git_dir="{$HOME}/.dotfiles.git/"
+tmp_dir="${HOME}/.dotfiles-tmp-${now}/"
+bk_dir="${HOME}/.dotfiles-archive/${now}/"
+
+echo "It is currently ${now}"
+
+# if ${git_dir} already exists, prompt to either overwrite or abort
+# get input with `read`
+# use while loop to validate response
+# echo "Checking if ~/.dotfiles.git/ already exists"
+# if [ -d "${git_dir} ]; then
+#   echo "~/.dotfiles.git/ already exists; overwrite or abort?"
+# fi
+
+# clone from github to a bare repo
+# echo "Cloning from GitHub to a bare repository"
+# git clone --bare https://github.com/joeptacek/dotfiles.git "${git_dir}"
+
+# create temporary working directory and checkout master here
+# possibly test whether directory already exists (seems very unlikely)?
+mkdir "${tmp_dir}"
+git --git-dir="${git_dir}" --work-tree="${tmp_dir}" checkout master
+
+# if need to do backup, create dir in .dotfiles-archive with name based on ${now}
+# the -p flag creates intermediary directory ~/.dotfiles-archive/ if doesn't exist yet
+# possibly test whether directory already exists (seems very unlikely)?
+# mkdir -p "${bk_dir}"
+# echo "Creating directory: ~/.dotfiles-archive/${now}/"
