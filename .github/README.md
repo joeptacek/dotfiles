@@ -28,7 +28,7 @@ to track a new file, un-ignore it from `.gitignore` before trying to do `dotfile
 
 ```
 echo "!<filename>" >> $HOME/.gitignore
-dotfiles-git add <filename>
+dotfiles-git add .
 ```
 
 ## notes
