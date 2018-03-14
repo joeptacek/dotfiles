@@ -61,8 +61,8 @@ dotfiles-git push -u origin master
 instead of explicitly ignoring non-dotfiles with `.gitignore`, you can just have git keep quiet about untracked files; remove everything from `.gitignore` except `.dotfiles.git` itself
 
 ```bash
-echo ".dotfiles.git" > "${HOME}/.gitignore
-dotfiles-git config --local status.showUntrackedFiles no"
+echo ".dotfiles.git" > "${HOME}/.gitignore"
+dotfiles-git config --local status.showUntrackedFiles no
 ```
 
 ## further reading
