@@ -2,47 +2,64 @@
 
 ## setup
 
-backup or remove any existing dotfiles in `$HOME`
+### manual setup
+
+backup or remove any dotfiles in `$HOME` that would otherwise be duplicated
 
 clone to a bare repo in `$HOME`
 
-```
-git clone --bare https://github.com/joeptacek/dotfiles.git $HOME/.dotfiles.git
+```bash
+git clone --bare https://github.com/joeptacek/dotfiles.git "${HOME}/.dotfiles.git"
 ```
 
-move dotfiles into `$HOME`
+move all dotfiles from master branch into `$HOME`
 
+```bash
+git --git-dir="${HOME}/.dotfiles.git" --work-tree="${HOME}" checkout master .
 ```
-git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME checkout master
+
+### bash script
+
+this will clone to a bare repo in `$HOME`, move duplicates to `$HOME/.dotfiles.bk`, and then move dotfiles from master branch into `$HOME`
+
+```bash
+bash <(curl -fsS https://raw.githubusercontent.com/joeptacek/dotfiles/master/.dotfiles-install)
 ```
 
 ## usage
 
-`.bashrc` contains alias `dotfiles-git` for using git to work with dotfiles in `$HOME` (e.g., `dotfiles-git status`)
+`.bashrc` contains alias `dotfiles-git` for using git to work with dotfiles in `$HOME`
 
-```
-alias dotfiles-git='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+```bash
+alias dotfiles-git='git --git-dir="${HOME}/.dotfiles.git" --work-tree="${HOME}"'
 ```
 
-to track a new file, un-ignore it from `.gitignore` before trying to do `dotfiles-git add`
+check status of git repo etc.
 
+```bash
+source "${HOME}/.bashrc" # must reload .bashrc after initial checkout
+dotfiles-git status
 ```
-echo "!<filename>" >> $HOME/.gitignore
-dotfiles-git add .
+
+to track a new file, un-ignore it from `.gitignore` and then `dotfiles-git add` it
+
+```bash
+echo "!filename" >> ${HOME}/.gitignore
+dotfiles-git add filename
 ```
 
 ## notes
 
-for the first push after making local changes, you need to explicitly set the remote as upstream
+with a freshly-cloned bare repo, you need to explicitly set the remote as upstream to push any local changes
 
-```
+```bash
 dotfiles-git push -u origin master
 ```
 
 instead of explicitly ignoring non-dotfiles with `.gitignore`, you can just have git keep quiet about untracked files; remove everything from `.gitignore` except `.dotfiles.git` itself
 
-```
-echo ".dotfiles.git" > $HOME/.gitignore
+```bash
+echo ".dotfiles.git" > "${HOME}/.gitignore
 dotfiles-git config --local status.showUntrackedFiles no
 ```
 
