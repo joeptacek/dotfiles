@@ -1,5 +1,7 @@
 # dotfiles
 
+manage dotfiles with git
+
 ## setup
 
 ### manual setup
