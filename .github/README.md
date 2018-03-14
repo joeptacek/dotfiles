@@ -62,7 +62,7 @@ instead of explicitly ignoring non-dotfiles with `.gitignore`, you can just have
 
 ```bash
 echo ".dotfiles.git" > "${HOME}/.gitignore
-dotfiles-git config --local status.showUntrackedFiles no
+dotfiles-git config --local status.showUntrackedFiles no"
 ```
 
 ## further reading
