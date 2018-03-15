@@ -15,7 +15,8 @@
 /.github/*
 /.bundle/*
 
-# don't ignore this .gitignore or the README.md
+# don't ignore things related to the repo
+!.dotfiles-install
 !.gitignore
 !.github/README.md
 
@@ -23,6 +24,5 @@
 !.bash_profile
 !.bashrc
 !.bundle/config
-!.dotfiles-install
 !.git-prompt-colors.sh
 !Brewfile
