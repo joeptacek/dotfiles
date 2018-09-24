@@ -33,9 +33,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# load chruby with auto-switching (wrap in file test?)
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+# load chruby with auto-switching
+
+if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
+  source /usr/local/opt/chruby/share/chruby/chruby.sh
+  if [ -f /usr/local/opt/chruby/share/chruby/auto.sh ]; then
+    source /usr/local/opt/chruby/share/chruby/auto.sh
+  fi
+fi
 
 ## ALIASES
 
