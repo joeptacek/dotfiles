@@ -31,3 +31,5 @@ brew 'chruby'
 
 # other deps
 # brew 'autoconf' # automake dep
+# brew 'gettext' # git dep
+# brew 'pcre2' # git dep
