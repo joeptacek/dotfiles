@@ -19,7 +19,7 @@
 !.gitignore
 !.github/README.md
 
-# don't ignore the main dotfiles
+# don't ignore the main dotfiles (everything below)
 !.bash_profile
 !.bashrc
 !.bundle/config
