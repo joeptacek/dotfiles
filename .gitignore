@@ -16,7 +16,6 @@
 /.bundle/*
 
 # don't ignore things related to the repo
-!.dotfiles-install
 !.gitignore
 !.github/README.md
 
@@ -26,3 +25,4 @@
 !.bundle/config
 !.git-prompt-colors.sh
 !Brewfile
+!.npmrc
